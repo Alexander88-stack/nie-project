@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>validar dni</title>
     <link rel="stylesheet" href="./style/style.css">
-    <script src="Dni.js/index.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
     <div class="principal">
@@ -27,10 +27,11 @@
                 <form role="form">
                     <input type="hidden" name="_token" value="vQAUIHhtZRREDxNEEUpA1MzA8MCDzFMD0GRSMAsO">
                     <div class="form-group ">
-                        <input id="nif" type="nif" class="nif uppercase" placeholder="DNI, NIE, CIF" name="nif" maxlength="9" value="" required autofocus>
+                        <input id="nif" type="text" class="nif uppercase" placeholder="DNI, NIE, CIF"   value="0" required autofocus>
                     </div>
             <div class = "check-container">
-            <p>Comprobar</p>
+              <input type="button" onclick="comprobacion()" value="COMPROBAR">
+             
         </div>
         
 

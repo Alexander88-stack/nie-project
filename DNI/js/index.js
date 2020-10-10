@@ -1,53 +1,38 @@
 console.log("Hola mundo!")
 
 function comprobacion() {
-    const letras = ["T","R","W","A","G","M","Y","F","P","D","B","N","J","Z","S","Q","V","H","L","C","K","E"];
+    let letras = ["T","R","W","A","G","M","Y","F","P","D","B","N","J","Z","S","Q","V","H","L","C","K","E","T"];
+    let numero;
+    dni= document.getElementById("nif").innerHTML;
+    //let resto;
+    //let letra;
+    let letra1;
+    const formaDni = /^[XYZ]?\d{5,8}[A,Z]$/;
+    dni = dni.toUpperCase();
+
+if (formaDni.test(dni) === true ){
+    numero = dni.substr(0,dni.length-1);
+    numero = numero.replace("X",0);
+    numero = numero.replace("Y",1);
+    numero = numero.replace("Z",2);
+    letra1 = dni.substr(dni.length-1,1);
+    numero = numero%23;
     
-    let juntarDni = document.getElementById(nif).value;
-    const i = 0;
-    let identificador= 0;
-    let separarDni = ' ';
-    let resto;
-    
-    let dnimayus = '';
+    letras = letras.substr(numero, numero+1);
+    if (letras!=letra1){
+        //alert("Error letra mal")
+        document.write("ERROR, letra mal");
+        return false;
+    }
+    else {
+        //alerta("Correcto");
+        document.write("Bien, DNI correcto");
+        return true;
+    }
 }
-    for (i = 0 ; i < separarDni().length ; i ++) {
-
-        if (i <=7){
-            if (isNaN(separarDni(i))) {
-                identificador = 1;
-            }
-        }
-        else{
-            if (isNaN(separarDni[8])){
-                separarDni[8] = separarDni[8].toUpperCase();
-            }
-            else{
-                identificador = 1;
-            }
-
-
-        }
-    }
-    if (i !=9){
-        identificador = 1;
-    }
-    else{
-        dnimayus = separarDni.join("");
-        numerosdeldni = dnimayus.substring[0,8];
-        letrafinal= dnimayus.substring[9];
-        resto = numerosdeldni / 23;
-        if(vector[resto] != letrafinal) {
-            identificador = 2;
-        }
-        }
-
-    if (identificador == 0){
-        alert ("DNI correcto");
-    }
-    else if (identificador == 1){
-        alert("DNI incorrecto");
-    }
-    else if (identificador == 2){
-        alert("Letra erronea");
-    }
+else{
+    document.write("DNI no valido");
+    //alerta("No valido");
+    return false;
+}
+}
